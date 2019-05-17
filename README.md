@@ -1,79 +1,53 @@
-<img width="1440" alt="The 311 on 3.11" src="https://user-images.githubusercontent.com/30739929/57596573-5dcf2700-7519-11e9-89ab-aaeda757fa90.png">
+<img width="1440" alt="title" src="https://user-images.githubusercontent.com/30739929/57937133-569a7700-7893-11e9-9a18-fcf16fb5e769.png">
 
-How well can we predict a positive or negative outcome resolution based on the following features.
+This project takes a look at 311 Service Requests in New York City made on 3.11.2019, the start date of my Data Science bootcamp.  The features in this data set include:
 
-Features:  
-  * Agency 
-  * Borough
-  * Location (Latitude & Longitude)
-  * Created Date
-  * Closed Date
-  * Complaint Type
-  * Descriptor
-  * Resolution Description → Resolution Outcome
-  
-       Positive or Negative?
+<img width="1440" alt="features" src="https://user-images.githubusercontent.com/30739929/57944925-771ffc80-78a6-11e9-9b9b-e282e5a85cae.png">
 
-The Resolution Outcome is based on the contents of the resolution description.  An example of a positive resolution is "The NYPD responded to the complaint and took action to fix the condition.  An example of a negative resolution is "The Police Department responded and upon arrival those responsible for the condition were gone."
+Using classification models, I want to see if I can predict a positive or negative resolution outcome.  Resolution outcome is an engineered feature based on the contents of the resolution_description feature.  An example of  negative (0) resolution was "The NYPD responded but upon arrival those responsible were gone."  An example of a positive (1) resolution was "The DOT responded to the complaint and took action to fix the condition."
 
-There are a total of 1000 311 Service Requests made on 3.11.2019.  Using the criteria above, there is
-a total of 614 positive outcomes and a total of 386 negative outcomes.
+<img width="1440" alt="target variable" src="https://user-images.githubusercontent.com/30739929/57944926-771ffc80-78a6-11e9-941b-06a16e070800.png">
 
-![pos_vs_neg_outcomes](https://user-images.githubusercontent.com/30739929/57596883-f31eeb00-751a-11e9-9dbd-9f83a165c8f9.png)
+### EDA
 
-## Exploratory Data Analysis
-Top 311 complaints for New York City:
+I took a look at what the top service requests for New York City were:
 
-![top_complaints_NYC](https://user-images.githubusercontent.com/30739929/57596956-44c77580-751b-11e9-8dd0-54acccf9651c.png)
+<img width="1440" alt="top5_nyc" src="https://user-images.githubusercontent.com/30739929/57945375-b4d15500-78a7-11e9-935f-cc9f7ff7ca5c.png">
 
-Broken down further by borough:
+I looked further to check if this was different per borough, and indeed they were.
 
-![top_complaints_bronx](https://user-images.githubusercontent.com/30739929/57596992-66286180-751b-11e9-881a-427d16f2b887.png)
-![top_complaints_brooklyn](https://user-images.githubusercontent.com/30739929/57596996-6a547f00-751b-11e9-8681-dad186483f79.png)
-![top_complaints_manhattan](https://user-images.githubusercontent.com/30739929/57597003-6de80600-751b-11e9-80b8-8539cd2c8306.png)
-![top_complaints_queens](https://user-images.githubusercontent.com/30739929/57597009-72acba00-751b-11e9-954a-2f34c6aa480e.png)
-![top_complaints_staten](https://user-images.githubusercontent.com/30739929/57597012-750f1400-751b-11e9-87e8-0d96a01b175a.png)
+<img width="1440" alt="top5_bq" src="https://user-images.githubusercontent.com/30739929/57945561-332df700-78a8-11e9-9eaf-c32c9bf58d3a.png">
+<img width="1440" alt="Manhattan, Bronx, Staten Island" src="https://user-images.githubusercontent.com/30739929/57945447-ea763e00-78a7-11e9-9ff4-e060f0659d9f.png">
 
-#### Positive vs Negative Resolutions by Borough:
-![311_resolutions_borough](https://user-images.githubusercontent.com/30739929/57597082-d20aca00-751b-11e9-85eb-ba926d67f95b.png)
-![311_resolutions_borough_stacked](https://user-images.githubusercontent.com/30739929/57597083-d46d2400-751b-11e9-97fd-5885fc23f897.png)
+I mapped out the positive and negative resolutions to see if there was a relationship with the boroughs
 
+<img width="1440" alt="map_borough" src="https://user-images.githubusercontent.com/30739929/57945695-843deb00-78a8-11e9-8816-7d19ad54db58.png">
+![311_resolutions_borough](https://user-images.githubusercontent.com/30739929/57945816-dc74ed00-78a8-11e9-97e4-bc93cecd8393.png)
 
-#### Positive vs Negative Resolutions by Agency:
-![311_resolutions_agency](https://user-images.githubusercontent.com/30739929/57597112-067e8600-751c-11e9-86e3-d1b36d7f04ac.png)
+I then took a look at if another feature, complaint type, had a relationship.
 
-#### Folium Heatmaps
-Complaints of HEAT/HOT WATER
+<img width="1440" alt="map_rodent" src="https://user-images.githubusercontent.com/30739929/57946106-8b192d80-78a9-11e9-9d3c-afdeb68f6e0c.png">
 
-<img width="481" alt="map_heat" src="https://user-images.githubusercontent.com/30739929/57597514-a852a280-751d-11e9-9f78-8c173c74c1c9.png">
+I also looked at the different agencies.
 
-Complaints of Noise - Residential
+<img width="1440" alt="map_nypd
+" src="https://user-images.githubusercontent.com/30739929/57946227-d2072300-78a9-11e9-8732-ba0a7117ccf3.png">
 
-<img width="484" alt="map_noise" src="https://user-images.githubusercontent.com/30739929/57597515-a852a280-751d-11e9-85c8-ec25a7310740.png">
+<img width="1440" alt="agency" src="https://user-images.githubusercontent.com/30739929/57946253-e21f0280-78a9-11e9-8f7a-cb4362a1999e.png">
 
-Complaints of Rodents
+### Models
+<img width="1440" alt="Logistic Regression" src="https://user-images.githubusercontent.com/30739929/57946418-3de98b80-78aa-11e9-91ce-4d75e66d1dbd.png">
 
-<img width="585" alt="map_rodents" src="https://user-images.githubusercontent.com/30739929/57597516-a852a280-751d-11e9-8d65-1599100bfb65.png">
+<img width="1440" alt="Random Forest" src="https://user-images.githubusercontent.com/30739929/57946428-417d1280-78aa-11e9-9b1e-9f6bc287c946.png">
 
-## Models Used
-Using the F1 Score to find our most accurate model:
+<img width="1440" alt="knn" src="https://user-images.githubusercontent.com/30739929/57946514-72f5de00-78aa-11e9-8931-35d2f9fd0728.png">
 
-Random Forests: The best parameters were
-{'max_depth': 5,
- 'max_features': 0.25,
- 'min_samples_leaf': 0.03,
- 'n_estimators': 200} and returned a F1 Score of 0.521
- 
- KNN: A KNN model with a k:3 returned a F1 Score of 0.660
+<img width="1440" alt="Decision Tree" src="https://user-images.githubusercontent.com/30739929/57946456-55c10f80-78aa-11e9-90b5-a77f75db99f6.png">
 
-Decision Tree:  A Decision Tree with the following parameters {'max_depth': 12, 'max_features': 41} returned a F1 score of 0.616
+The decision tree first split on agency_Dept of Transportation because the resolution outcome handled by that agency was largely positive.  It then split on complaint_rodent because that had largely negative resolution outcomes.
 
-![decision tree](https://user-images.githubusercontent.com/30739929/57598894-f8803380-7522-11e9-9cf9-147425fe7836.png)
+<img width="1440" alt="xgboost" src="https://user-images.githubusercontent.com/30739929/57946838-56a67100-78ab-11e9-9311-697a7a509c41.png">
 
-XGBoost
+XGBoost found that the Department of Health and Mental Hygiene, followed by Dept of Buildings, then complaint_Rodent were the most important features.
 
-![xg_feature_01](https://user-images.githubusercontent.com/30739929/57598913-0df55d80-7523-11e9-9d57-617567b5f648.png)
-
-XGBoost with GridSearch
-
-![xg_feature_02](https://user-images.githubusercontent.com/30739929/57598914-0df55d80-7523-11e9-8231-3db467818ff5.png)
+The Logistic Regression model with Upsampling provided the highest F1-Score of 0.730.

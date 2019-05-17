@@ -77,7 +77,3 @@ XGBoost
 XGBoost with GridSearch
 
 ![xg_feature_02](https://user-images.githubusercontent.com/30739929/57598914-0df55d80-7523-11e9-8231-3db467818ff5.png)
-
-<img width="1165" alt="Models" src="https://user-images.githubusercontent.com/30739929/57598288-a3432280-7520-11e9-8a0c-324392e06aaa.png">
-
-The model with the highest F1 Score is SMOTE.

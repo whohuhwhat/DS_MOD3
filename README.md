@@ -2,39 +2,40 @@
 
 This project takes a look at 311 Service Requests in New York City made on 3.11.2019, the start date of my Data Science bootcamp.  The features in this data set include:
 
-<img width="1440" alt="features" src="https://user-images.githubusercontent.com/30739929/57944925-771ffc80-78a6-11e9-9b9b-e282e5a85cae.png">
+<img width="1292" alt="features" src="https://user-images.githubusercontent.com/30739929/60364329-dbf56900-99b3-11e9-9cb6-851fab90750f.png">
 
 Using classification models, I want to see if I can predict a positive or negative resolution outcome.  Resolution outcome is an engineered feature based on the contents of the resolution_description feature.  An example of a  negative (0) resolution was "The NYPD responded but upon arrival those responsible were gone."  An example of a positive (1) resolution was "The DOT responded to the complaint and took action to fix the condition."
 
-<img width="1440" alt="target variable" src="https://user-images.githubusercontent.com/30739929/57944926-771ffc80-78a6-11e9-941b-06a16e070800.png">
+<img width="1440" alt="target variable" src="https://user-images.githubusercontent.com/30739929/60364336-e1eb4a00-99b3-11e9-993e-a3d209a4e9da.png">
 
 ## EDA
 
 I took a look at what the top service requests for New York City were:
 
-<img width="1440" alt="top5_nyc" src="https://user-images.githubusercontent.com/30739929/57945375-b4d15500-78a7-11e9-935f-cc9f7ff7ca5c.png">
+<img width="1440" alt="top5_nyc" src="https://user-images.githubusercontent.com/30739929/60364627-ab61ff00-99b4-11e9-9d62-433f21217e7c.png">
 
 I looked further to check if this was different per borough, and indeed they were.
 
-<img width="1440" alt="top5_bq" src="https://user-images.githubusercontent.com/30739929/57945561-332df700-78a8-11e9-9eaf-c32c9bf58d3a.png">
-<img width="1440" alt="Manhattan, Bronx, Staten Island" src="https://user-images.githubusercontent.com/30739929/57945447-ea763e00-78a7-11e9-9ff4-e060f0659d9f.png">
+<img width="1440" alt="top5_bq" src="https://user-images.githubusercontent.com/30739929/60364659-c0d72900-99b4-11e9-98c2-e6f38cba0006.png">
+<img width="1440" alt="top5_mbsi" src="https://user-images.githubusercontent.com/30739929/60364972-9043bf00-99b5-11e9-93f1-95a52d1204f2.png">
 
 I mapped out the positive and negative resolutions to see if there was a relationship with the boroughs
 
-<img width="1440" alt="map_borough" src="https://user-images.githubusercontent.com/30739929/57945695-843deb00-78a8-11e9-8816-7d19ad54db58.png">
+<img width="1440" alt="map_borough" src="https://user-images.githubusercontent.com/30739929/60364713-ebc17d00-99b4-11e9-8f13-991304af1f64.png">
 
 ![311_resolutions_borough](https://user-images.githubusercontent.com/30739929/57945816-dc74ed00-78a8-11e9-97e4-bc93cecd8393.png)
 
 I then took a look at if another feature, complaint type, had a relationship.
 
-<img width="1440" alt="map_rodent" src="https://user-images.githubusercontent.com/30739929/57946106-8b192d80-78a9-11e9-9d3c-afdeb68f6e0c.png">
+<img width="1440" alt="map_rodents" src="https://user-images.githubusercontent.com/30739929/60364790-14497700-99b5-11e9-8b9f-c805495e6dad.png">
+
 
 I also looked at the different agencies.
 
-<img width="1440" alt="map_nypd
-" src="https://user-images.githubusercontent.com/30739929/57946227-d2072300-78a9-11e9-8732-ba0a7117ccf3.png">
+<img width="1440" alt="nypd" src="https://user-images.githubusercontent.com/30739929/60364859-36db9000-99b5-11e9-8262-c4c1a722b77d.png">
 
-<img width="1440" alt="agency" src="https://user-images.githubusercontent.com/30739929/57946253-e21f0280-78a9-11e9-8f7a-cb4362a1999e.png">
+
+<img width="1440" alt="agency" src="https://user-images.githubusercontent.com/30739929/60364883-48bd3300-99b5-11e9-8f49-36bae6914c25.png">
 
 ## Models
 I used F1 Score as the metric to find the most accurate model:

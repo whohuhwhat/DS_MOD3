@@ -27,7 +27,7 @@ I mapped out the positive and negative resolutions to see if there was a relatio
 
 I then took a look at if another feature, complaint type, had a relationship.
 
-<img width="1440" alt="map_rodents" src="https://user-images.githubusercontent.com/30739929/60364790-14497700-99b5-11e9-8b9f-c805495e6dad.png">
+<img width="1440" alt="rodent_complaints" src="https://user-images.githubusercontent.com/30739929/60365214-1829c900-99b6-11e9-9bdf-e2a17daa34e4.png">
 
 
 I also looked at the different agencies.
@@ -38,19 +38,19 @@ I also looked at the different agencies.
 <img width="1440" alt="agency" src="https://user-images.githubusercontent.com/30739929/60364883-48bd3300-99b5-11e9-8f49-36bae6914c25.png">
 
 ## Models
-I used F1 Score as the metric to find the most accurate model:
+I used F1 Score as the metric to find the most accurate model.  The F1 Score considers both precision and recall of the test.  Precision is the number of correct positive results divided by the number of all positive results.  Recall is the number of correct positive results divided by the number of all results that should have been identified as positive.  The higher a F1 score is, the more accurate a test is.
 
-<img width="1440" alt="Logistic Regression" src="https://user-images.githubusercontent.com/30739929/57946418-3de98b80-78aa-11e9-91ce-4d75e66d1dbd.png">
+<img width="1440" alt="logistic regression" src="https://user-images.githubusercontent.com/30739929/60365669-5ecbf300-99b7-11e9-8581-70b1731beb2f.png">
 
-<img width="1440" alt="Random Forest" src="https://user-images.githubusercontent.com/30739929/57947423-e862ae00-78ac-11e9-8abe-b6546c6dd25d.png">
+<img width="1440" alt="random_forest" src="https://user-images.githubusercontent.com/30739929/60365734-8de26480-99b7-11e9-8458-08ef9794db87.png">
 
-<img width="1440" alt="knn" src="https://user-images.githubusercontent.com/30739929/57946514-72f5de00-78aa-11e9-8931-35d2f9fd0728.png">
+<img width="1287" alt="k_nearest_neighbors" src="https://user-images.githubusercontent.com/30739929/60365749-976bcc80-99b7-11e9-86e3-cecba87977c0.png">
 
-<img width="1440" alt="Decision Tree" src="https://user-images.githubusercontent.com/30739929/57946456-55c10f80-78aa-11e9-90b5-a77f75db99f6.png">
+<img width="1440" alt="decision_tree" src="https://user-images.githubusercontent.com/30739929/60365757-9f2b7100-99b7-11e9-9657-1f66ab794535.png">
 
 The decision tree first split on agency_Dept of Transportation because the resolution outcome handled by that agency was largely positive.  It then split on complaint_rodent because that had largely negative resolution outcomes.
 
-<img width="1440" alt="xgboost" src="https://user-images.githubusercontent.com/30739929/57946838-56a67100-78ab-11e9-9311-697a7a509c41.png">
+<img width="1425" alt="xgboost" src="https://user-images.githubusercontent.com/30739929/60365771-a6eb1580-99b7-11e9-9185-49e121ef0aa2.png">
 
 XGBoost found that the Department of Health and Mental Hygiene, followed by Dept of Buildings, then complaint_Rodent were the most important features.
 
